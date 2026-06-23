@@ -2,94 +2,96 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
+  width: 100%;
+  min-height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f7f5ef;
-  color: #ffffff;
+  background: #0c2418;
 }
 
-.hero {
-  min-height: 100vh;
+.cover {
   position: relative;
+  width: 100%;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
 }
 
-.image-wrap {
+.cover-image {
   position: absolute;
   inset: 0;
-  z-index: 1;
-}
-
-.image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center right;
+  z-index: 1;
 }
 
-.hero::after {
-  content: "";
+.overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(90deg, rgba(15, 42, 29, 0.92) 0%, rgba(15, 42, 29, 0.68) 34%, rgba(15, 42, 29, 0.08) 72%),
-    linear-gradient(0deg, rgba(70, 18, 22, 0.22), rgba(70, 18, 22, 0.02));
+    linear-gradient(90deg, rgba(7, 31, 21, 0.96) 0%, rgba(7, 31, 21, 0.78) 28%, rgba(7, 31, 21, 0.22) 58%, rgba(7, 31, 21, 0.02) 100%);
 }
 
-.content {
+.cover-content {
   position: relative;
   z-index: 3;
-  width: min(90%, 1200px);
-  margin: 0 auto;
-  padding: 72px 0;
-}
-
-.eyebrow {
-  margin: 0 0 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  font-size: 13px;
-  color: #e9e1c8;
+  padding-left: clamp(32px, 7vw, 110px);
+  padding-right: 32px;
+  color: #ffffff;
+  max-width: 720px;
 }
 
 h1 {
   margin: 0;
-  text-transform: uppercase;
-  letter-spacing: -0.05em;
-  font-size: clamp(58px, 10vw, 142px);
+  font-size: clamp(54px, 8.5vw, 132px);
   line-height: 0.86;
-  max-width: 760px;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
-.subtitle {
-  margin: 34px 0 0;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: clamp(22px, 3vw, 38px);
-  color: #f4f1e7;
+.follow {
+  margin: clamp(28px, 4vw, 52px) 0 0;
+  font-size: clamp(22px, 3vw, 42px);
+  letter-spacing: 0.28em;
+  font-weight: 500;
 }
 
 .date {
-  margin: 18px 0 0;
-  font-size: 22px;
-  color: #e4d7b9;
+  margin: 22px 0 0;
+  color: #f0e8cc;
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 500;
 }
 
 @media (max-width: 760px) {
-  .hero {
+  .cover {
     align-items: flex-end;
   }
 
-  .hero::after {
-    background:
-      linear-gradient(0deg, rgba(15, 42, 29, 0.96) 0%, rgba(15, 42, 29, 0.76) 45%, rgba(15, 42, 29, 0.10) 100%);
+  .cover-image {
+    object-position: center center;
   }
 
-  .content {
-    padding: 42px 0;
+  .overlay {
+    background:
+      linear-gradient(0deg, rgba(7, 31, 21, 0.96) 0%, rgba(7, 31, 21, 0.70) 44%, rgba(7, 31, 21, 0.05) 100%);
+  }
+
+  .cover-content {
+    padding: 0 28px 48px;
+  }
+
+  h1 {
+    font-size: clamp(48px, 15vw, 76px);
+  }
+
+  .follow {
+    letter-spacing: 0.18em;
   }
 }
